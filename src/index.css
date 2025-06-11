@@ -96,3 +96,14 @@ button:focus-visible {
   align-items: center;
   justify-content: space-between;
 }
+
+.container-counter {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  margin: 12px;
+
+  span {
+    margin-bottom: 12px;
+  }
+}

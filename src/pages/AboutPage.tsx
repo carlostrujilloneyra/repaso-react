@@ -6,6 +6,7 @@ export const AboutPage = () => {
   return (
     <>
       <span>Esta es la página de About</span>
+
       <button onClick={() => navigate(-1)}>ATRÁS</button>
     </>
   );
