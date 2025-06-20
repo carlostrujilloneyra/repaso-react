@@ -107,3 +107,10 @@ button:focus-visible {
     margin-bottom: 12px;
   }
 }
+
+.zustand-test {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 24px;
+}
