@@ -31,6 +31,7 @@ export const AboutPage = () => {
   return (
     <>
       <span>Esta es la página de About</span>
+      <h2 className='bg-red-500 text-white font-extrabold p-4 mt-4'>AUA</h2>
 
       <button onClick={() => navigate(-1)}>ATRÁS</button>
 
