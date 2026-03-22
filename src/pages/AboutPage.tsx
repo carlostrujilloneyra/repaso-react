@@ -12,9 +12,7 @@ export const AboutPage = () => {
 
   const [nombres, setNombres] = useState<string[]>([]);
 
-  useEffect(() => {
-    console.log('🌀 useEffect ejecutado porque "nombres" cambió');
-  }, [nombres]);
+  const [query, setQuery] = useState('');
 
   const volverAAsignarArrayVacio = () => {
     setNombres([]); // Nuevo array vacío → nueva referencia
@@ -27,6 +25,30 @@ export const AboutPage = () => {
   const agregarNombre = () => {
     setNombres((prev) => [...prev, 'Carlos']);
   };
+
+  /* const myPromise = new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(100);
+    }, 2000);
+  });
+
+  myPromise.then((myMoney) => {
+    console.log(`Tengo mi dinero ${myMoney}`);
+  }); */
+
+  useEffect(() => {
+    const timeOutId = setTimeout(() => {
+      setQuery(query);
+    }, 700);
+
+    return () => {
+      clearTimeout(timeOutId);
+    };
+  }, [query]);
+
+  useEffect(() => {
+    console.log('🌀 useEffect ejecutado porque "nombres" cambió');
+  }, [nombres]);
 
   return (
     <>

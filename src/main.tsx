@@ -3,18 +3,19 @@ import { createRoot } from 'react-dom/client';
 import { App } from './App';
 import { UserProvider } from './context/UserProvider';
 import { BrowserRouter } from 'react-router-dom';
-import './index.css';
 import { Provider } from 'react-redux';
 import { store } from './services/store/slices/store';
+import { RepasoApp } from './RepasoApp';
+import './index.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
       <Provider store={store}>
         <UserProvider>
-          <App />
+          <RepasoApp />
         </UserProvider>
       </Provider>
     </BrowserRouter>
-  </StrictMode>
+  </StrictMode>,
 );

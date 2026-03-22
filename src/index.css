@@ -17,6 +17,12 @@
   margin: 0;
 }
 
+@layer base {
+  body {
+    @apply p-6;
+  }
+}
+
 /* Tus estilos de .navbar, button, .container, etc. */
 
 @layer components {
