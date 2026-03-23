@@ -37,10 +37,11 @@ export const TasksApp = () => {
   const totalCount = todos.length;
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 p-4'>
+    <div className='min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 p-4 bg-red-500'>
       <div className='mx-auto max-w-2xl'>
         <div className='mb-8 text-center'>
-          <h1 className='text-4xl font-bold text-slate-800 mb-2'>Lista de Tareas</h1>
+          <h1 className='text-4xl font-bold text-slate-800 mb-5'>Lista de Tareas</h1>
+
           <p className='text-slate-600'>Mantén tus tareas organizadas y consigue hacerlas</p>
         </div>
 
