@@ -1,5 +1,6 @@
-import { RepasoApp } from '@/RepasoApp';
+/* import { RepasoApp } from '@/RepasoApp'; */
+import { TasksApp } from '@/TaskApp';
 
 export const AboutPage = () => {
-  return <RepasoApp />;
+  return <TasksApp />;
 };
