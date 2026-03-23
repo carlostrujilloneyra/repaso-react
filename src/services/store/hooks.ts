@@ -1,9 +1,5 @@
-import type { TypedUseSelectorHook } from 'react-redux';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from './slices/store';
+import type { RootState, AppDispatch } from './store';
 
-/** Para crear mis hooks en redux, este código puedes usarlo
- en otros proyectos sin problemas **/
-
-export const useAppDispatch: () => AppDispatch = useDispatch;
-export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+export const useAppDispatch = useDispatch.withTypes<AppDispatch>();
+export const useAppSelector = useSelector.withTypes<RootState>();
