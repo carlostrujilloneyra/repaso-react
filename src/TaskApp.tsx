@@ -67,6 +67,7 @@ export const TasksApp = () => {
             <CardHeader className='pb-3'>
               <CardTitle className='text-lg font-semibold text-slate-700'>Progreso</CardTitle>
             </CardHeader>
+
             <CardContent className='pt-0'>
               <div className='flex items-center justify-between text-sm text-slate-600 mb-2'>
                 <span>
@@ -88,6 +89,7 @@ export const TasksApp = () => {
           <CardHeader>
             <CardTitle className='text-lg font-semibold text-slate-700'>Tareas</CardTitle>
           </CardHeader>
+
           <CardContent>
             {todos.length === 0 ? (
               <div className='text-center py-12'>
@@ -120,6 +122,7 @@ export const TasksApp = () => {
                     >
                       {todo.text}
                     </span>
+
                     <Button
                       variant='ghost'
                       size='sm'
