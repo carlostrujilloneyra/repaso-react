@@ -1,4 +1,4 @@
-import { useReducer, useState } from 'react';
+import { useState } from 'react';
 
 import { Plus, Trash2, Check } from 'lucide-react';
 
@@ -6,47 +6,57 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { getTaskInitialState, taskReducer } from './reducer/tasksReducer';
+
+interface Todo {
+  id: number;
+  text: string;
+  completed: boolean;
+}
 
 export const TasksApp = () => {
-  /* const [todos, setTodos] = useState<Todo[]>([]); */
+  const [todos, setTodos] = useState<Todo[]>([]);
   const [inputValue, setInputValue] = useState('');
-
-  const [state, dispatch] = useReducer(taskReducer, getTaskInitialState());
 
   const addTodo = () => {
     if (inputValue.length === 0) return;
 
-    // dispatch(action (objeto que tiene type y payload))
+    const newTodo: Todo = {
+      id: Date.now(),
+      text: inputValue.trim(),
+      completed: false,
+    };
 
-    dispatch({
-      type: 'ADD_TODO',
-      payload: inputValue,
-    });
+    setTodos((prevTodo) => [...prevTodo, newTodo]);
 
     setInputValue('');
   };
 
   const toggleTodo = (id: number) => {
-    dispatch({
-      type: 'TOGGLE_TODO',
-      payload: id,
+    const updatedTodos = todos.map((todo) => {
+      if (todo.id === id) {
+        return {
+          ...todo,
+          completed: !todo.completed,
+        };
+      }
+
+      return todo;
     });
+
+    setTodos(updatedTodos);
   };
 
   const deleteTodo = (id: number) => {
     /* Podriamos tener una constante updatedTodos y setearlo también */
-    dispatch({
-      type: 'DELETE_TODO',
-      payload: id,
-    });
+    setTodos(todos.filter((todo) => todo.id !== id));
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') addTodo();
   };
 
-  const { todos, completed: completedCount, length: totalCount } = state;
+  const completedCount = todos.filter((todo) => todo.completed).length;
+  const totalCount = todos.length;
 
   return (
     <div className='min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 p-4 bg-red-500'>

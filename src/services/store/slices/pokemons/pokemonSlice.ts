@@ -30,6 +30,8 @@ export const pokemonSlice = createSlice({
     },
 
     setPokemon(state, action: PayloadAction<SetPokemonsPayload>) {
+      /* En Redux Toolkit, puedes poner un return {} y lo que está dentro
+      de ese objeto debe tener la forma definida en tu interface de InitialState */
       ((state.isLoading = false), (state.pokemon = action.payload.pokemon));
     },
   },
