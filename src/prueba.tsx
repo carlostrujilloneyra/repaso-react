@@ -10,9 +10,3 @@ export const useCounter = (initialValue: number = 5) => {
     handleIncrement,
   };
 };
-
-function sumar(numero: number) {
-  return numero + 1;
-}
-
-const suma = (numero: number) => numero + 1;
