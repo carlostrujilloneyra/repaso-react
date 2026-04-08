@@ -9,13 +9,13 @@ export const UserProvider = ({ children }: Props) => {
   const [isLogged, setIsLogged] = useState<boolean>(false);
 
   return (
-    <UserContext.Provider
+    <UserContext
       value={{
         isLogged,
         setIsLogged,
       }}
     >
       {children}
-    </UserContext.Provider>
+    </UserContext>
   );
 };
