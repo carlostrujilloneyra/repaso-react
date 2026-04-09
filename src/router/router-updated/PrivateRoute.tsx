@@ -1,15 +1,15 @@
 import { UserContext } from '@/context/UserContext';
 import { use } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 
-interface Props {
+/* interface Props {
   element: React.ReactNode;
-}
+} */
 
-export const PrivateRoute = ({ element }: Props) => {
+export const PrivateRoute = () => {
   const { isLogged } = use(UserContext);
 
-  if (isLogged) return element;
+  if (isLogged) return <Outlet />; //sino usará children va normal el "element"
 
   return <Navigate to='/' replace />;
 };
